@@ -1,13 +1,19 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller,Get, Param, Post} from "@nestjs/common";
 import { CreatePersonDto } from "./dto/user-create.dto";
+import { UserService } from "./user.service";
 
 
 @Controller('users')
 export class UserController{
+  
+    constructor(private readonly userService:UserService) {
+        
+    }
+
     @Get()
     getAll(){
-        return `Person is get All`;
+        return this.userService.findAll();
     }
 
     @Get(':id')

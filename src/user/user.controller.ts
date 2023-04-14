@@ -11,10 +11,17 @@ export class UserController{
         
     }
 
+
+    @Get('findAll')
+    findAll(){
+       return this.userService.findAll();
+    }
+    
+    /*
     @Get()
     getAll(){
         return this.userService.findAll();
-    }
+    }*/
 
     @Get(':id')
     getOne(@Param('id') id){
